@@ -108,18 +108,38 @@ namespace ClientProjetDomLog.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/LoginWcfService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/LoginWcfService.Model")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClientProjetDomLog.ServiceReference1.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
+    public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private string AppVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private object[] DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperationVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TokenAppField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TokenUserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -132,27 +152,105 @@ namespace ClientProjetDomLog.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public string AppVersion {
             get {
-                return this.BoolValueField;
+                return this.AppVersionField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.AppVersionField, value) != true)) {
+                    this.AppVersionField = value;
+                    this.RaisePropertyChanged("AppVersion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public object[] Data {
             get {
-                return this.StringValueField;
+                return this.DataField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Info {
+            get {
+                return this.InfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InfoField, value) != true)) {
+                    this.InfoField = value;
+                    this.RaisePropertyChanged("Info");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OperationName {
+            get {
+                return this.OperationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperationNameField, value) != true)) {
+                    this.OperationNameField = value;
+                    this.RaisePropertyChanged("OperationName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OperationVersion {
+            get {
+                return this.OperationVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperationVersionField, value) != true)) {
+                    this.OperationVersionField = value;
+                    this.RaisePropertyChanged("OperationVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TokenApp {
+            get {
+                return this.TokenAppField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TokenAppField, value) != true)) {
+                    this.TokenAppField = value;
+                    this.RaisePropertyChanged("TokenApp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TokenUser {
+            get {
+                return this.TokenUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TokenUserField, value) != true)) {
+                    this.TokenUserField = value;
+                    this.RaisePropertyChanged("TokenUser");
                 }
             }
         }
@@ -168,54 +266,46 @@ namespace ClientProjetDomLog.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IServer")]
+    public interface IServer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/login", ReplyAction="http://tempuri.org/IService1/loginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServer/login", ReplyAction="http://tempuri.org/IServer/loginResponse")]
         ClientProjetDomLog.ServiceReference1.User login(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/login", ReplyAction="http://tempuri.org/IService1/loginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServer/login", ReplyAction="http://tempuri.org/IServer/loginResponse")]
         System.Threading.Tasks.Task<ClientProjetDomLog.ServiceReference1.User> loginAsync(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/process", ReplyAction="http://tempuri.org/IService1/processResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientProjetDomLog.ServiceReference1.User))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientProjetDomLog.ServiceReference1.CompositeType))]
-        object process(object message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServer/Process", ReplyAction="http://tempuri.org/IServer/ProcessResponse")]
+        ClientProjetDomLog.ServiceReference1.Message Process(ClientProjetDomLog.ServiceReference1.Message message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/process", ReplyAction="http://tempuri.org/IService1/processResponse")]
-        System.Threading.Tasks.Task<object> processAsync(object message);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        ClientProjetDomLog.ServiceReference1.CompositeType GetDataUsingDataContract(ClientProjetDomLog.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<ClientProjetDomLog.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(ClientProjetDomLog.ServiceReference1.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServer/Process", ReplyAction="http://tempuri.org/IServer/ProcessResponse")]
+        System.Threading.Tasks.Task<ClientProjetDomLog.ServiceReference1.Message> ProcessAsync(ClientProjetDomLog.ServiceReference1.Message message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : ClientProjetDomLog.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    public interface IServerChannel : ClientProjetDomLog.ServiceReference1.IServer, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<ClientProjetDomLog.ServiceReference1.IService1>, ClientProjetDomLog.ServiceReference1.IService1 {
+    public partial class ServerClient : System.ServiceModel.ClientBase<ClientProjetDomLog.ServiceReference1.IServer>, ClientProjetDomLog.ServiceReference1.IServer {
         
-        public Service1Client() {
+        public ServerClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public ServerClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public ServerClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -227,20 +317,12 @@ namespace ClientProjetDomLog.ServiceReference1 {
             return base.Channel.loginAsync(username, password);
         }
         
-        public object process(object message) {
-            return base.Channel.process(message);
+        public ClientProjetDomLog.ServiceReference1.Message Process(ClientProjetDomLog.ServiceReference1.Message message) {
+            return base.Channel.Process(message);
         }
         
-        public System.Threading.Tasks.Task<object> processAsync(object message) {
-            return base.Channel.processAsync(message);
-        }
-        
-        public ClientProjetDomLog.ServiceReference1.CompositeType GetDataUsingDataContract(ClientProjetDomLog.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<ClientProjetDomLog.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(ClientProjetDomLog.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<ClientProjetDomLog.ServiceReference1.Message> ProcessAsync(ClientProjetDomLog.ServiceReference1.Message message) {
+            return base.Channel.ProcessAsync(message);
         }
     }
 }

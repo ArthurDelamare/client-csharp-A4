@@ -32,11 +32,31 @@ namespace ClientProjetDomLog
             }
             else
             {
-                 ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-                User user;
-                var message = new {method= "login",version="1.0",param=new {username= username.Text,password=password.Text} };
-                user = client.login(username.Text, password.Text);
-                if (!user.valid)
+                 ServiceReference1.ServerClient client = new ServiceReference1.ServerClient();
+
+                var message2 = new ServiceReference1.Message();
+                message2.OperationName = "authenticate";
+                message2.OperationVersion = "1";
+                object[] data = { username.Text, password.Text};
+                message2.Data = data;
+
+                bool valid = false;
+                string token = "";
+
+                var answer = client.Process(message2);
+
+                try
+                {
+                    valid = (bool)answer.Data[0];
+                    token = (string)answer.Data[1];
+                } 
+                catch
+                {
+                    Console.WriteLine("Error while parsing answer");
+                }
+                
+
+                if (!valid)
                 {
                     warning.Text = "l'identifiant ou le mot de passe est incorrect";
                 }

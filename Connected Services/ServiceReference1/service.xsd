@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/LoginWcfService" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/LoginWcfService.Model" />
   <xs:element name="login">
     <xs:complexType>
       <xs:sequence>
@@ -17,31 +17,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="process">
+  <xs:element name="Process">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="message" nillable="true" type="xs:anyType" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LoginWcfService.Model" minOccurs="0" name="message" nillable="true" type="q2:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="processResponse">
+  <xs:element name="ProcessResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="processResult" nillable="true" type="xs:anyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataUsingDataContract">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LoginWcfService" minOccurs="0" name="composite" nillable="true" type="q2:CompositeType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataUsingDataContractResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LoginWcfService" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q3:CompositeType" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LoginWcfService.Model" minOccurs="0" name="ProcessResult" nillable="true" type="q3:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

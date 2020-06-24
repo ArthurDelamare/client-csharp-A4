@@ -82,13 +82,16 @@
     <EmbeddedResource Include="uploadPage.resx">
       <DependentUpon>uploadPage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\ServiceReference1\ClientProjetDomLog.ServiceReference1.CompositeType.datasource">
+    <None Include="Connected Services\ServiceReference1\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\ClientProjetDomLog.ServiceReference1.Message.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\ClientProjetDomLog.ServiceReference1.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReference1\LoginWcfService.xsd">
+    <None Include="Connected Services\ServiceReference1\LoginWcfService.Model.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\service.wsdl" />
