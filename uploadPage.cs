@@ -23,6 +23,14 @@ namespace ClientProjetDomLog
         private void button1_Click(object sender, EventArgs e)
         {
 
+            var filedata1 = new FileData();
+            filedata1.content = file1;
+            filedata1.name = Filename.Text;
+
+            var filedata2 = new FileData();
+            filedata2.content = file2;
+
+
             Console.WriteLine(file1);
             Console.WriteLine(file2);
             
