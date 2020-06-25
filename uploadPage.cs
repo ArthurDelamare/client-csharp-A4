@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ClientProjetDomLog.ServiceReference1;
 
 namespace ClientProjetDomLog
 {
@@ -29,7 +30,18 @@ namespace ClientProjetDomLog
 
             var filedata2 = new FileData();
             filedata2.content = file2;
+            filedata2.name = filename2.Text;
 
+            object[] data = { (object)filedata1, (object)filedata2 };
+            ServiceReference1.Message message = new ServiceReference1.Message();
+            message.Info = "Request to decrypt files.";
+            message.OperationName = "decrypt";
+            message.OperationVersion = "1";
+            message.AppVersion = "1";
+            message.Data = data;
+
+            ServerClient client = new ServerClient();
+            var answer = client.Process(message);
 
             Console.WriteLine(file1);
             Console.WriteLine(file2);

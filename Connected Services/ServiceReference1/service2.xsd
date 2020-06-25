@@ -9,4 +9,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="FileData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileData" nillable="true" type="tns:FileData" />
 </xs:schema>
