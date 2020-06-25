@@ -39,6 +39,8 @@ namespace ClientProjetDomLog
                 message2.OperationVersion = "1";
                 object[] data = { username.Text, password.Text};
                 message2.Data = data;
+                message2.TokenApp = "Client123";
+
 
                 bool valid = false;
                 string token = "";
@@ -62,7 +64,7 @@ namespace ClientProjetDomLog
                 }
                 else
                 {
-                    var frm = new uploadPage();
+                    var frm = new uploadPage(token);
                     frm.Location = this.Location;
                     frm.StartPosition = FormStartPosition.Manual;
                     frm.FormClosing += delegate { this.Show(); };

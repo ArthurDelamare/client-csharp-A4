@@ -14,11 +14,14 @@ namespace ClientProjetDomLog
 {
     public partial class uploadPage : Form
     {
-        public uploadPage()
+        private string token;
+        public uploadPage(string token)
         {
+            
             InitializeComponent();
+            this.token = token;
         }
-        private string file1 ;
+        private string file1;
         private string file2;
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,6 +42,8 @@ namespace ClientProjetDomLog
             message.OperationVersion = "1";
             message.AppVersion = "1";
             message.Data = data;
+            message.TokenUser = this.token;
+            message.TokenApp = "Client123";
 
             ServerClient client = new ServerClient();
             var answer = client.Process(message);
