@@ -28,6 +28,7 @@
     <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="7b382fee-c47a-40ff-b1ce-c17ed4ded23e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginWcfService/Service1/mex" />
     <MetadataFile FileName="LoginWcfService.Model.xsd" MetadataType="Schema" ID="5cfd2d84-9682-47e7-a494-5df0e561ee94" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginWcfService/Service1/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="9f9a2cdb-d917-4324-b7a5-464a7574425a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginWcfService/Service1/mex" />
+    <MetadataFile FileName="LoginWcfService.xsd" MetadataType="Schema" ID="d3e7d2c9-56c8-4f0f-9da3-7e1bbd987c8f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginWcfService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

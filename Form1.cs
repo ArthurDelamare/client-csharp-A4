@@ -37,7 +37,12 @@ namespace ClientProjetDomLog
                 var message2 = new ServiceReference1.Message();
                 message2.OperationName = "authenticate";
                 message2.OperationVersion = "1";
-                object[] data = { username.Text, password.Text};
+                Credentials credentials = new Credentials()
+                {
+                    Username = username.Text,
+                    Password = password.Text
+                };
+                object[] data = { credentials };
                 message2.Data = data;
                 message2.TokenApp = "Client123";
 
