@@ -16,7 +16,7 @@ namespace ClientProjetDomLog
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginPage());
+            Application.Run(new LoginPage());
             ///Application.Run(new uploadPage());
         }
     }
