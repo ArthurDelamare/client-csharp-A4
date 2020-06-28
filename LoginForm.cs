@@ -1,4 +1,5 @@
-﻿using ClientProjetDomLog.ServiceReference1;
+﻿using ClientProjetDomLog.CUT;
+using ClientProjetDomLog.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,36 +33,7 @@ namespace ClientProjetDomLog
             }
             else
             {
-                 ServiceReference1.ServerClient client = new ServiceReference1.ServerClient();
-
-                var message2 = new ServiceReference1.Message();
-                message2.OperationName = "authenticate";
-                message2.OperationVersion = "1";
-                Credentials credentials = new Credentials()
-                {
-                    Username = username.Text,
-                    Password = password.Text
-                };
-                object[] data = { credentials };
-                message2.Data = data;
-                message2.TokenApp = "Client123";
-
-
-                bool valid = false;
-                string token = "";
-
-                var answer = client.Process(message2);
-
-                try
-                {
-                    valid = (bool)answer.Data[0];
-                    token = (string)answer.Data[1];
-                } 
-                catch
-                {
-                    Console.WriteLine("Error while parsing answer");
-                }
-                
+                bool valid = LoginController.Authenticate(username.Text, password.Text);
 
                 if (!valid)
                 {
@@ -69,11 +41,11 @@ namespace ClientProjetDomLog
                 }
                 else
                 {
-                    var frm = new UploadForm(token);
-                    frm.Location = this.Location;
-                    frm.StartPosition = FormStartPosition.Manual;
-                    frm.FormClosing += delegate { this.Show(); };
-                    frm.Show();
+                    var uploadForm = new UploadForm(LoginController.UserToken);
+                    uploadForm.Location = this.Location;
+                    uploadForm.StartPosition = FormStartPosition.Manual;
+                    uploadForm.FormClosing += delegate { this.Show(); };
+                    uploadForm.Show();
                     this.Hide();
                 }
             }
