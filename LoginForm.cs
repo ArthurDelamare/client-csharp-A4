@@ -1,14 +1,7 @@
-﻿using ClientProjetDomLog.CUT;
-using ClientProjetDomLog.ServiceReference1;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+
+using ClientProjetDomLog.CUT;
 
 namespace ClientProjetDomLog
 {
@@ -41,7 +34,7 @@ namespace ClientProjetDomLog
                 }
                 else
                 {
-                    var uploadForm = new UploadForm(LoginController.UserToken);
+                    var uploadForm = new UploadForm();
                     uploadForm.Location = this.Location;
                     uploadForm.StartPosition = FormStartPosition.Manual;
                     uploadForm.FormClosing += delegate { this.Show(); };
