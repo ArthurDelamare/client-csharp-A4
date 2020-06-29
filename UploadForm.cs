@@ -3,24 +3,21 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.IO;
 using ClientProjetDomLog.ServiceReference1;
+using ClientProjetDomLog.CUT;
 
 namespace ClientProjetDomLog
 {
     public partial class UploadForm : Form
     {
-        private string token;
-        public UploadForm(string token)
+        public UploadForm()
         {
-            
             InitializeComponent();
-            this.token = token;
         }
         private string file1;
         private string file2;
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             var filedata1 = new FileData();
             filedata1.content = file1;
             filedata1.name = Filename.Text;
@@ -29,23 +26,10 @@ namespace ClientProjetDomLog
             filedata2.content = file2;
             filedata2.name = filename2.Text;
 
-            object[] data = { (object)filedata1, (object)filedata2 };
-            ServiceReference1.Message message = new ServiceReference1.Message();
-            message.Info = "Request to decrypt files.";
-            message.OperationName = "decrypt";
-            message.OperationVersion = "1";
-            message.AppVersion = "1";
-            message.Data = data;
-            message.TokenUser = this.token;
-            message.TokenApp = "Client123";
-
-            ServerClient client = new ServerClient();
-            var answer = client.Process(message);
+            UploadController.Upload(filedata1, filedata2);
 
             Console.WriteLine(file1);
             Console.WriteLine(file2);
-            
-
         }
 
 
